@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ type Data struct {
 	Dollars int `json:"dollars"`
 }
 
-func dataRoute(i *inertia.Inertia) http.Handler {
+func DataRoute(i *inertia.Inertia) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		data := Data{
@@ -24,7 +24,7 @@ func dataRoute(i *inertia.Inertia) http.Handler {
 	return http.HandlerFunc(fn)
 }
 
-func aboutRoute(i *inertia.Inertia) http.Handler {
+func AboutRoute(i *inertia.Inertia) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		err := i.Render(w, r, "About", inertia.Props{
 			"amount": "$7,000",
@@ -38,8 +38,12 @@ func aboutRoute(i *inertia.Inertia) http.Handler {
 	return http.HandlerFunc(fn)
 }
 
-func homeRoute(i *inertia.Inertia) http.Handler {
+func HomeRoute(i *inertia.Inertia) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w,r)
+			return
+		}
 		err := i.Render(w, r, "Index")
 		if err != nil {
 			handleServerErr(w, err)

@@ -1,4 +1,4 @@
-module svelgo
+module solidgo
 
 go 1.22
 

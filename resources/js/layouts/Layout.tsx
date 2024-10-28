@@ -11,7 +11,7 @@ export default function Layout(props) {
     <QueryClientProvider client={queryClient}>
       <main>
         <header class="flex flex-row p-3 gap-x-5">
-          <Link href="/home" class="text-5xl font-bold underline">Home</Link>
+          <Link href="/" class="text-5xl font-bold underline">Home</Link>
           <Link href="/about" class="text-5xl font-bold underline">About</Link>
         </header>
         <article class='p-3'>{props.children}</article>
