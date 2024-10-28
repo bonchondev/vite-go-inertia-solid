@@ -1,6 +1,6 @@
 # Gonertia Solid Example
 
-This is a template for start using the [Golang Inertia Adapter](https://github.com/romsar/gonertia) using Svelte 4
+This is a template for start using the [Golang Inertia Adapter](https://github.com/romsar/gonertia) using Solid
 
 1. Create public folder at root of project
 2. build it once with npm/pnpm/etc
